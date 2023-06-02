@@ -1,0 +1,53 @@
+.home {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    .top-bar {
+        background-color: #eeeeee;
+        justify-content: space-between;
+        height: 60px;
+        padding: 0 20px;
+        display: flex;
+
+        .title {
+            font-size: 20px;
+            color: #333;
+            line-height: 60px;
+            font-weight: bold;
+        }
+
+        .setting-icon {
+            width: 50px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            font-size: 20px;
+        }
+    }
+    
+    .body {
+        width: 100%;
+        background-color: #f9f9f9;
+        flex-grow: 1;
+
+        .card {
+            margin: 20px;
+            border: 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+            .footer {
+                display: flex;
+                justify-content: center;
+
+                .link {
+                    // 清除默认样式
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
