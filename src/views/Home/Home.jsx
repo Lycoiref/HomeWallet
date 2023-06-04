@@ -34,6 +34,11 @@ const Home = () => {
                 <div className="chart">
                     <ExpendChart />
                 </div>
+                <div className="record-content">
+                    <RecordCard />
+                    <RecordCard />
+                    <RecordCard />
+                </div>
             </div>
         </div>
     )
@@ -134,5 +139,12 @@ const ExpendChart = () => {
     )
 }
 
+const RecordCard = () => {
+    return (
+        <>
+            <div className="card">111</div>
+        </>
+    )
+}
 
 export default Home
