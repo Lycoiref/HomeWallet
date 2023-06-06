@@ -91,6 +91,66 @@
         }
 
         // 消费分类饼图的样式
+        .chart {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            .expend-chart {
+                // margin: 20px;
+                width: 90%;
+                font-weight: bold;
+                font-size: 14px;
+            }
+        }
+
+        .record-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .record-card {
+                @card-height: 60px;
+
+                width: 90%;
+                height: @card-height;
+                margin: 0 10px 10px 15px;
+                border: 0;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                display: flex;
+                flex-direction: row;
+
+                .card-left {
+                    width: @card-height;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .card-right {
+                    flex: 1;
+                    padding-right: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    font-size: 14px;
+                    font-weight: bold;
+
+                    .text-line {
+                        display: flex;
+                        justify-content: space-between;
+
+                        &.subtext {
+                            font-size: 12px;
+                            color: #818181;
+                            font-weight: normal;
+                        }
+                    }
+                }
+            }
+        }
 
     }
 }

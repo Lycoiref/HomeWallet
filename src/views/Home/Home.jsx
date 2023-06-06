@@ -4,9 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 // 引入bootstrap-icons
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 // 引入echarts
 import * as echarts from 'echarts'
-import { useEffect } from 'react'
 
 
 // 支出
@@ -97,8 +97,8 @@ const ExpendChart = () => {
                 {
                     name: '本月支出',
                     type: 'pie',
-                    top: '40%',
-                    radius: ['40%', '70%'],
+                    top: '10%',
+                    radius: ['25%', '40%'],
                     avoidLabelOverlap: false,
                     itemStyle: {
                         borderRadius: 5,
@@ -119,6 +119,9 @@ const ExpendChart = () => {
                     },
                     data: [
                         { value: 20, name: '吃饭' },
+                        { value: 20, name: '342' },
+                        { value: 20, name: 'q4qw' },
+                        { value: 20, name: '541235' },
                         { value: 100, name: '住房' }
                     ]
                 }
@@ -132,7 +135,7 @@ const ExpendChart = () => {
                     <div className="title">本月支出 ¥{expend.toFixed(2)} 收入 ¥{income.toFixed(2)}</div>
                 </div>
                 <div className="chart">
-                    <div id="main" style={{ height: '250px' }}></div>
+                    <div id="main" style={{ width: '100%', height: '250px' }}></div>
                 </div>
             </div>
         </>
@@ -140,9 +143,26 @@ const ExpendChart = () => {
 }
 
 const RecordCard = () => {
+    // 记账卡片
     return (
         <>
-            <div className="card">111</div>
+            <div className="card record-card">
+                <div className="card-left">
+                    <div className="icon">
+                        <i className="bi-cash"></i>
+                    </div>
+                </div>
+                <div className="card-right">
+                    <div className="text-line">
+                        <div className="record-item">餐饮</div>
+                        <div className="record-amount">¥{(100).toFixed(2)}</div>
+                    </div>
+                    <div className="text-line subtext">
+                        <div className="record-remark">吃午饭</div>
+                        <div className="record-time">今天 12:30</div>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }
