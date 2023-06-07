@@ -8,11 +8,11 @@ import * as echarts from 'echarts'
 import axios from 'axios'
 // import React from 'react'
 import { Link } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 
 // 支出
-let expend = 120
+let expend, setExpend
 // 收入
 let income = 2000
 
@@ -47,11 +47,12 @@ const Home = () => {
 }
 
 const PreviewCard = () => {
+    [expend, setExpend] = useState(0)
     useEffect(() => {
         (async () => {
             const res = await axios.get('http://localhost:3000/api/main')
             // console.log(res)
-            expend = res.data.monthTotalExpenses
+            setExpend(res.data.monthTotalExpenses)
             income = res.data.monthTotalIncome
         })()
     })

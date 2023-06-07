@@ -11,7 +11,7 @@ router.post('/test', (ctx) => {
 
 router.get('/api/main', (ctx) => {
     ctx.body = {
-        monthTotalExpenses: 1000,
+        monthTotalExpenses: 120,
         monthTotalIncome: 2000,
     }
 })
