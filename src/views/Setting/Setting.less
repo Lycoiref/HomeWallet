@@ -1,8 +1,10 @@
 .setting {
     width: 100%;
     height: 100%;
+    background-color: #f9f9f9;
 
     .top-bar {
+        width: 100%;
         background-color: #eeeeee;
         justify-content: space-between;
         height: 60px;
@@ -10,6 +12,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-direction: row;
         
         .back-icon {
             font-size: 20px;
@@ -26,4 +29,82 @@
             font-weight: bold;
         }
     }
+    
+    .body {
+        width: 100%;
+
+        .user-avatar {
+            @avatar-height: 200px;
+            width: 100%;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+    
+            .user-avatar-img {
+                height: @avatar-height;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: @avatar-height - 100px;
+                font-weight: 100;
+    
+                i {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: 2px solid #333;
+                    color: #333;
+                    width: @avatar-height - 80px;
+                    height: @avatar-height - 80px;
+                    border-radius: 50%;
+                }
+            }
+    
+            .username {
+                margin-top: -20px;
+            }
+        }
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        .setting-card {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            border-radius: 15px;
+            background-color: #fff;
+
+            .card-title {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin: 10px 0;
+                color: #939393;
+            }
+
+            .flex-row {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 10px 0 10px 20px;
+                align-items: center;
+                height: 100%;
+
+                .setting-content {
+                    display: flex;
+
+                    i {
+                        margin: 0 20px 0 10px;
+                    }
+                }
+            }
+        }
+    }
+
 }

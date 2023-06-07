@@ -1,20 +1,23 @@
 import './Setting.less'
+import getSettingCard from './components/SettingCard'
 
 const Setting = () => {
+    const { baseInfo, privacyInfo } = getSettingCard()
     return (
         <>
             <div className="setting">
                 <SettingBar />
                 <div className="body">
                     <div className="user-avatar">
-                        <div className="user-avatar-img">
-                        </div>
+                        <UserAvatar />
                     </div >
-                    <div className="setting-item">
-                        <div className="setting-item-title">账号</div>
-                        <div className="setting-item-content">
-                            <div className="setting-item-content-text">123456789</div>
-                        </div>
+                    <div className="setting-card">
+                        <div className="card-title">基本信息</div>
+                        {baseInfo}
+                    </div>
+                    <div className="setting-card">
+                        <div className="card-title">隐私信息</div>
+                        {privacyInfo}
                     </div>
                 </div >
             </div >
@@ -34,6 +37,17 @@ const SettingBar = () => {
                     <i className="bi-check2" onClick={() => window.history.back()}></i>
                 </div>
             </div>
+        </>
+    )
+}
+
+const UserAvatar = () => {
+    return (
+        <>
+            <div className="user-avatar-img">
+                <i className="bi-person"></i>
+            </div>
+            <div className="username">Lycoiref</div>
         </>
     )
 }
