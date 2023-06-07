@@ -1,7 +1,15 @@
 import './Setting.less'
 import getSettingCard from './components/SettingCard'
+import axios from 'axios'
+import { useEffect } from 'react'
 
 const Setting = () => {
+    useEffect(() => {
+        (async () => {
+            const res = await axios.post('http://localhost:3000/')
+            console.log(res)
+        })()
+    })
     const { baseInfo, privacyInfo } = getSettingCard()
     return (
         <>

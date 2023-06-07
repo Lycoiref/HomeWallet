@@ -3,10 +3,12 @@ import './Home.less'
 import 'bootstrap/dist/css/bootstrap.min.css'
 // 引入bootstrap-icons
 import 'bootstrap-icons/font/bootstrap-icons.css'
-import { Link } from 'react-router-dom'
-import { useEffect } from 'react'
 // 引入echarts
 import * as echarts from 'echarts'
+import axios from 'axios'
+// import React from 'react'
+import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 
 
 // 支出
@@ -45,6 +47,14 @@ const Home = () => {
 }
 
 const PreviewCard = () => {
+    useEffect(() => {
+        (async () => {
+            const res = await axios.get('http://localhost:3000/api/main')
+            // console.log(res)
+            expend = res.data.monthTotalExpenses
+            income = res.data.monthTotalIncome
+        })()
+    })
     return (
         <div className="card">
             <div className="content">
