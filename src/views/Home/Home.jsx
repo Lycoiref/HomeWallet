@@ -17,6 +17,15 @@ let expend, setExpend
 let income = 2000
 
 const Home = () => {
+    [expend, setExpend] = useState(0)
+    useEffect(() => {
+        (async () => {
+            const res = await axios.get('http://localhost:3000/api/main')
+            // console.log(res)
+            setExpend(res.data.monthTotalExpenses)
+            income = res.data.monthTotalIncome
+        })()
+    })
     return (
         <div className="home">
             <div className="top-bar">
@@ -47,15 +56,6 @@ const Home = () => {
 }
 
 const PreviewCard = () => {
-    [expend, setExpend] = useState(0)
-    useEffect(() => {
-        (async () => {
-            const res = await axios.get('http://localhost:3000/api/main')
-            // console.log(res)
-            setExpend(res.data.monthTotalExpenses)
-            income = res.data.monthTotalIncome
-        })()
-    })
     return (
         <div className="card">
             <div className="content">
