@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 const Setting = () => {
     useEffect(() => {
         (async () => {
-            const res = await axios.post('http://localhost:3000/')
+            const res = await axios.post('http://localhost:3000/test')
             console.log(res)
         })()
     })

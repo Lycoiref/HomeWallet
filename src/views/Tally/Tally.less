@@ -1,0 +1,150 @@
+.tally {
+    @theme-color: #ff6666;
+    width: 100%;
+    height: 100%;
+    // background-color: #000;
+
+    .top-bar {
+        width: 100%;
+        height: 60px;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #ececec;
+
+        .nav-bar {
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+
+            .nav-item {
+                display: flex;
+                align-items: center;
+                margin: 0 10px;
+                height: 100%;
+                transition: all 0.1s ease-in-out;
+
+                &.active-item {
+                    font-size: 14px;
+                    border-bottom: 5px solid #000;
+                }
+            }
+        }
+
+        .no-style {
+            // 去除Link的默认样式
+            color: #000;
+            font-size: 20px;
+        }
+    }
+
+    .body {
+        width: 100%;
+
+        .item-list {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            .item {
+                width: 70px;
+                height: 70px;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+
+                .icon {
+                    font-size: 24px;
+                    color: #a3a3a3;
+                }
+
+                .title {
+                    font-size: 12px;
+                    margin-top: 5px;
+                }
+            }
+
+            .item-active {
+                .icon {
+                    font-size: 24px;
+                    color: @theme-color;
+                }
+
+                .title {
+                    color: @theme-color;
+                }
+            }
+        }
+
+    }
+
+    .input-box {
+        position: fixed;
+        width: 100vw;
+        height: 350px;
+        bottom: 0;
+        background-color: #f8f8f8;
+
+        .keyboard {
+            width: 100%;
+            height: 100%;
+
+            .value-row {
+                @value-row-height: 50px;
+                width: 100%;
+                height: @value-row-height;
+                margin-bottom: 15px;
+                display: flex;
+
+                .remark {
+                    width: 80%;
+                    background-color: #f8f8f8;
+                    border: 0;
+                    height: @value-row-height;
+                    display: flex;
+                    font-size: 12px;
+                    margin-left: 10px;
+                    // 去除输入框的默认样式
+                    outline: none;
+                    color: #a3a3a3;
+                }
+
+                .value {
+                    flex: 1;
+                    height: @value-row-height;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 24px;
+                    color: @theme-color;
+                }
+            }
+
+            .row {
+                width: 100%;
+                margin: 0;
+                display: flex;
+                justify-content: space-around;
+
+                .keyboard-button {
+                    margin: 5px;
+                    height: 55px;
+                    border-radius: 10px;
+                    flex: 1;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #fff;
+                }
+
+                .confirm-button {
+                    background-color: @theme-color;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
