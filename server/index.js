@@ -1,12 +1,20 @@
 import Koa from 'koa'
 import cors from '@koa/cors'
 import Router from 'koa-router'
+import React from 'react'
+import ReactDomServer from 'react-dom/server'
 
 const app = new Koa()
 const router = new Router()
 
 router.post('/test', (ctx) => {
-    ctx.body = 'Hello World'
+    const element = React.createElement('div', null, 'Hello World')
+    ctx.body = ReactDomServer.renderToString(element)
+})
+
+router.get('/test', (ctx) => {
+    const element = React.createElement('div', null, 'Hello World')
+    ctx.body = ReactDomServer.renderToString(element)
 })
 
 router.get('/api/main', (ctx) => {
