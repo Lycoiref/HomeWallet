@@ -50,6 +50,11 @@ const Home = () => {
                     <RecordCard />
                     <RecordCard />
                 </div>
+                <div className="add-record">
+                    <Link to="/add">
+                        <i className="bi-bag-plus-fill"></i>
+                    </Link>
+                </div>
             </div>
         </div>
     )
