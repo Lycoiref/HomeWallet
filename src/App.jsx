@@ -1,6 +1,7 @@
 import './App.css'
 import Home from './views/Home/Home'
 import Setting from './views/Setting/Setting'
+import Tally from './views/Tally/Tally'
 import {
     createBrowserRouter,
     RouterProvider,
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
     {
         path: "/setting",
         element: <Setting />,
+    },
+    {
+        path: "/tally",
+        element: <Tally />,
     },
     // 404Page
     {

@@ -51,7 +51,7 @@ const Home = () => {
                     <RecordCard />
                 </div>
                 <div className="add-record">
-                    <Link to="/add">
+                    <Link to="/tally">
                         <i className="bi-bag-plus-fill"></i>
                     </Link>
                 </div>
