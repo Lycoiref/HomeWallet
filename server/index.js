@@ -3,6 +3,7 @@ import cors from '@koa/cors'
 import Router from 'koa-router'
 import React from 'react'
 import ReactDomServer from 'react-dom/server'
+import bodyParser from 'koa-bodyparser'
 import { PrismaClient } from '@prisma/client'
 
 const app = new Koa()
@@ -103,7 +104,37 @@ router.get('/api/main', async (ctx) => {
     ctx.body = { expend, income, categoryExpendTop5, recentRecords }
 })
 
-app.use(cors())
+router.post('/api/record', async (ctx) => {
+    const data = ctx.request.body.data
+    console.log(data)
+    const category_id = await prisma.category.findFirst({
+        where: {
+            name: data.category,
+            type: data.type,
+        },
+    })
+    await prisma.record.create({
+        data: {
+            type: data.type,
+            amount: data.amount,
+            date: data.date,
+            description: data.description,
+            category: {
+                connect: {
+                    id: category_id.id,
+                },
+            },
+            user: {
+                connect: {
+                    id: data.user_id,
+                },
+            },
+        },
+    })
+    ctx.body = 'success'
+})
+
+app.use(cors()).use(bodyParser())
 app.use(router.routes())
 
 app.listen(3000, () => {

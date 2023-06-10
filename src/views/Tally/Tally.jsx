@@ -1,4 +1,5 @@
 import './Tally.less'
+import axios from 'axios'
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { BsFillBackspaceFill } from 'react-icons/bs'
@@ -103,6 +104,27 @@ const RevenueList = () => {
 
 const UserKeyboard = () => {
     const [value, setValue] = useState(0)
+    const submitRecord = async () => {
+        const navItem = document.querySelector('.active-item')
+        const remark = document.querySelector('.remark')
+        const category = document.querySelector('.item-active > .title')
+        const remarkValue = remark.value
+        const categoryValue = category.innerText
+        const recordType = navItem.innerText
+        console.log(navItem)
+        const data = {
+            type: (recordType === '支出' ? 'expend' : 'income'),
+            date: new Date().toISOString(),
+            amount: value,
+            description: remarkValue,
+            category: categoryValue,
+            user_id: 1
+        }
+        // console.log(data)
+        await axios.post('http://localhost:3000/api/record', {
+            data: data
+        })
+    }
     return (
         <>
             <div className="keyboard">
@@ -134,7 +156,7 @@ const UserKeyboard = () => {
                     <div className="col keyboard-button" onClick={() => setValue(0)}>清除</div>
                     <div className="col keyboard-button" onClick={() => setValue(value * 10)}>0</div>
                     <div className="col keyboard-button">.</div>
-                    <div className="col keyboard-button confirm-button">确定</div>
+                    <div className="col keyboard-button confirm-button" onClick={submitRecord}>确定</div>
                 </div>
             </div>
         </>
