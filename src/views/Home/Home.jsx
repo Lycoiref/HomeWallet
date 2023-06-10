@@ -19,12 +19,11 @@ const Home = () => {
     const dispatch = useDispatch()
     useEffect(() => {
         (async () => {
-            const res = await axios.get('http://localhost:3000/api/main')
+            const res = await axios.get('http://192.168.123.180:3000/api/main')
             dispatch(setExpend(Number(res.data.expend)))
             dispatch(setIncome(Number(res.data.income)))
             dispatch(setCategoryExpendTop5(res.data.categoryExpendTop5))
             dispatch(setRecentRecords(res.data.recentRecords))
-            console.log(preview)
         })()
     }, [])
     return (

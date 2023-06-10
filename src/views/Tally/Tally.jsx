@@ -121,9 +121,16 @@ const UserKeyboard = () => {
             user_id: 1
         }
         // console.log(data)
-        await axios.post('http://localhost:3000/api/record', {
+        let res = await axios.post('http://192.168.123.180:3000/api/record', {
             data: data
         })
+        if (res.status === 200) {
+            console.log('success')
+            // 回到首页
+            window.location.href = '/'
+        } else {
+            console.log(res)
+        }
     }
     return (
         <>
