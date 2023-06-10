@@ -3,6 +3,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    overflow: scroll;
 
     .top-bar {
         background-color: #eeeeee;
@@ -149,6 +150,20 @@
                         }
                     }
                 }
+
+                &.expend-card {
+
+                    .record-amount {
+                        color: rgb(87, 202, 106);
+                    }
+                }
+
+                &.income-card {
+
+                    .record-amount {
+                        color: rgb(255, 77, 79);
+                    }
+                }
             }
         }
 
@@ -159,6 +174,11 @@
             display: flex;
             justify-content: center;
             font-size: 50px;
+            pointer-events: none;
+
+            i {
+                pointer-events: all;
+            }
         }
     }
 }

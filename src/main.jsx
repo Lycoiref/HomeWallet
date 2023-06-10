@@ -1,10 +1,15 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom/client";
+import * as React from "react"
+import * as ReactDOM from "react-dom/client"
 import App from './App'
-import "./index.css";
+import "./index.css"
+// 使用Redux
+import store from './app/store'
+import { Provider } from 'react-redux'
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <App />
+        <Provider store={store}>
+            <App />
+        </Provider>
     </React.StrictMode>
-);
+)

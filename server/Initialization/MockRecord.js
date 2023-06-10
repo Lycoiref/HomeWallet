@@ -59,7 +59,12 @@ const RecordList = mockjs.mock({
     "list|100": [{
         "id|+1": 1,
         "amount|1-1000.2": 1,
-        "date": "@date",
+        // 只生成2023年6月10日前的数据
+        "date": () => {
+            // 生成6月1号到6月10号的数据
+            const date = `2023-06-${mockjs.mock({"number|1-10": 1}).number}`
+            return date;
+        },
         "description": "@cparagraph(1)",
         "category_id|1-17": 1,
         "user_id|1": 1
